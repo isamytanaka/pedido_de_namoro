@@ -8,9 +8,13 @@
   <style>
     body {
       background-color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Faz com que o body ocupe toda a altura da janela de visualização */
+      margin: 0; /* Remove as margens padrão do body */
     }
     .painel {
-      margin: auto;
       background-color: white;
       width: 500px;
       height: 500px;
@@ -18,6 +22,7 @@
       text-align: center;
       padding-top: 50px;
       font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      position: relative; /* Necessário para o posicionamento absoluto do botão "Não" */
     }
     #sim {
       height: 40px;
