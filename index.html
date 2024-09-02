@@ -16,12 +16,14 @@
     }
     .painel {
       background-color: white;
-      width: 500px;
-      height: 500px;
+      width: 90vw; /* Ajusta a largura em relação à largura da janela de visualização */
+      max-width: 500px; /* Define uma largura máxima para telas maiores */
+      height: auto; /* Ajusta a altura automaticamente com base no conteúdo */
+      max-height: 90vh; /* Define uma altura máxima em relação à altura da janela de visualização */
       border-radius: 20px;
       text-align: center;
-      padding-top: 50px;
-      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      padding: 20px; /* Ajuste o padding para telas menores */
+      box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
       position: relative; /* Necessário para o posicionamento absoluto do botão "Não" */
     }
     #sim {
@@ -31,7 +33,7 @@
       border: 2px solid white;
       border-radius: 10px;
       color: white;
-      margin-left: -50px;
+      margin: 10px; /* Ajusta a margem */
     }
     #nao {
       position: absolute;
@@ -43,12 +45,25 @@
       color: white;
       margin-left: 10px;
     }
+
+    /* Media Query para telas menores */
+    @media (max-width: 600px) {
+      .painel {
+        width: 95vw; /* Ajusta a largura para telas muito pequenas */
+        padding: 10px; /* Reduz o padding */
+      }
+      #sim, #nao {
+        height: 35px;
+        width: 55px;
+        font-size: 14px; /* Reduz o tamanho da fonte dos botões */
+      }
+    }
   </style>
 </head>
 <body>
   <div class="painel">
     <h1>I Love You 🥰</h1>
-    <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="">
+    <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="" style="max-width: 100%; height: auto;">
     <h2>Aceita namorar comigo?</h2>
     <a href="https://gifman.net/wp-content/uploads/2019/06/ursinhos-fofos-apaixonados.gif"><button id="sim">Sim! </button></a>
     <button onmouseover="fuja()" id="nao"> Não! </button>
