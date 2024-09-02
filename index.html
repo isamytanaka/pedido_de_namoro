@@ -17,12 +17,12 @@
     .painel {
       background-color: white;
       width: 90vw; /* Ajusta a largura em relação à largura da janela de visualização */
-      max-width: 500px; /* Define uma largura máxima para telas maiores */
+      max-width: 600px; /* Define uma largura máxima para telas maiores */
       height: auto; /* Ajusta a altura automaticamente com base no conteúdo */
       max-height: 90vh; /* Define uma altura máxima em relação à altura da janela de visualização */
       border-radius: 20px;
       text-align: center;
-      padding: 20px; /* Ajuste o padding para telas menores */
+      padding: 20px; /* Ajuste o padding para melhorar o layout */
       box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
       position: relative; /* Necessário para o posicionamento absoluto do botão "Não" */
     }
@@ -58,6 +58,20 @@
         font-size: 14px; /* Reduz o tamanho da fonte dos botões */
       }
     }
+
+    /* Media Query para desktops grandes */
+    @media (min-width: 1200px) {
+      .painel {
+        width: 80vw; /* Ajusta a largura para telas grandes, mas ainda responsiva */
+        max-width: 800px; /* Define uma largura máxima para telas muito grandes */
+        padding: 30px; /* Aumenta o padding para telas grandes */
+      }
+      #sim, #nao {
+        height: 50px;
+        width: 70px;
+        font-size: 16px; /* Aumenta o tamanho da fonte dos botões */
+      }
+    }
   </style>
 </head>
 <body>
@@ -83,3 +97,4 @@
   </script>
 </body>
 </html>
+
