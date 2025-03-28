@@ -1,100 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🥰</title>
-  <style>
-    body {
-      background-color: red;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh; /* Faz com que o body ocupe toda a altura da janela de visualização */
-      margin: 0; /* Remove as margens padrão do body */
-    }
-    .painel {
-      background-color: white;
-      width: 90vw; /* Ajusta a largura em relação à largura da janela de visualização */
-      max-width: 600px; /* Define uma largura máxima para telas maiores */
-      height: auto; /* Ajusta a altura automaticamente com base no conteúdo */
-      max-height: 90vh; /* Define uma altura máxima em relação à altura da janela de visualização */
-      border-radius: 20px;
-      text-align: center;
-      padding: 20px; /* Ajuste o padding para melhorar o layout */
-      box-sizing: border-box; /* Inclui padding e border no cálculo da largura e altura */
-      position: relative; /* Necessário para o posicionamento absoluto do botão "Não" */
-    }
-    #sim {
-      height: 40px;
-      width: 60px;
-      background-color: red;
-      border: 2px solid white;
-      border-radius: 10px;
-      color: white;
-      margin: 10px; /* Ajusta a margem */
-    }
-    #nao {
-      position: absolute;
-      height: 40px;
-      width: 60px;
-      background-color: red;
-      border: 2px solid white;
-      border-radius: 10px;
-      color: white;
-      margin-left: 10px;
-    }
-
-    /* Media Query para telas menores */
-    @media (max-width: 600px) {
-      .painel {
-        width: 95vw; /* Ajusta a largura para telas muito pequenas */
-        padding: 10px; /* Reduz o padding */
-      }
-      #sim, #nao {
-        height: 35px;
-        width: 55px;
-        font-size: 14px; /* Reduz o tamanho da fonte dos botões */
-      }
-    }
-
-    /* Media Query para desktops grandes */
-    @media (min-width: 1200px) {
-      .painel {
-        width: 80vw; /* Ajusta a largura para telas grandes, mas ainda responsiva */
-        max-width: 800px; /* Define uma largura máxima para telas muito grandes */
-        padding: 30px; /* Aumenta o padding para telas grandes */
-      }
-      #sim, #nao {
-        height: 50px;
-        width: 70px;
-        font-size: 16px; /* Aumenta o tamanho da fonte dos botões */
-      }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Challenge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="painel">
-    <h1>I Love You 🥰</h1>
-    <img src="https://gifman.net/wp-content/uploads/2019/06/ursinho-fofo-apaixonado.gif" alt="" style="max-width: 100%; height: auto;">
-    <h2>Aceita namorar comigo?</h2>
-    <a href="https://gifman.net/wp-content/uploads/2019/06/ursinhos-fofos-apaixonados.gif"><button id="sim">Sim! </button></a>
-    <button onmouseover="fuja()" id="nao"> Não! </button>
-  </div>
-  <script>
-    function fuja() {
-      var botaoNao = document.getElementById('nao');
-      var larguraJanela = window.innerWidth;
-      var alturaJanela = window.innerHeight;
-      var maxX = larguraJanela - botaoNao.offsetWidth;
-      var maxY = alturaJanela - botaoNao.offsetHeight;
-      var aleatorioX = Math.floor(Math.random() * maxX);
-      var aleatorioY = Math.floor(Math.random() * maxY);
-      botaoNao.style.left = aleatorioX + "px";
-      botaoNao.style.top = aleatorioY + "px";
-    }
-  </script>
+    <div id="background-svg" class="background-svg"></div>
+    
+    <div class="love-container">
+        <div class="card-wrapper">
+            <div class="love-card">
+                <div class="card-header">
+                    <i class="fas fa-heart pulse-heart"></i>
+                    <h1>Quer ficar comigo?</h1>
+                </div>
+                
+                <div class="couple-animation">
+                    <div class="couple-scene">
+                        <div class="character character-left">
+                            <i class="fas fa-person"></i>
+                        </div>
+                        <div class="heart-bridge">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <div class="character character-right">
+                            <i class="fas fa-person-dress"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="btn-yes" class="btn btn-positive">
+                        <i class="fas fa-check"></i> Sim
+                    </button>
+                    <button id="btn-no" class="btn btn-negative">
+                        <i class="fas fa-times"></i> Não
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="particles-container"></div>
+    <div id="success-modal" class="modal hidden">
+        <div class="modal-content">
+            <i class="fas fa-heart"></i>
+            <h2>Que Incrível!</h2>
+            <p>Nosso amor começa agora!</p>
+            <button id="close-modal" class="btn btn-positive">
+                <i class="fas fa-heart-circle-check"></i> Fechar
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
